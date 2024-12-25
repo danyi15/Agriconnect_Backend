@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Nov 21, 2024 at 09:04 AM
+-- Host: 127.0.0.1
+-- Generation Time: Dec 20, 2024 at 11:04 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -43,6 +43,7 @@ CREATE TABLE `activities` (
 CREATE TABLE `articles` (
   `article_id` int(11) NOT NULL,
   `title` varchar(200) NOT NULL,
+  `image` varchar(255) DEFAULT 'default_image.png',
   `description` text DEFAULT NULL,
   `status` enum('draft','published') DEFAULT 'draft',
   `author_id` int(11) NOT NULL,
@@ -179,6 +180,18 @@ CREATE TABLE `users` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updatedAt` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`user_id`, `name`, `email`, `password_hash`, `phone_number`, `role`, `created_at`, `updatedAt`) VALUES
+(3, 'admin', 'admin@agriconnect.com', '$2b$10$hzZwcNKiv6KaYSOPeTQ.Z.lO2K8KPjnLuExPmFJ/JbB1gMdFPX7kO', '0888', 'admin', '2024-11-24 13:30:04', '0000-00-00 00:00:00'),
+(7, 'Yoga Syahputra', 'admin', '$2b$10$taOKUHf4NpzPFLaORM6tgurgyQGBa2zhbNHAgSd.cbHz7SEAiJkPC', NULL, '', '2024-11-26 00:25:12', '0000-00-00 00:00:00'),
+(8, 'Yoga Syahputra', 'adminyg@agriconnect.com', '$2b$10$38/ojPjmCgYljqw1p82Pw.X/b/pfKKWK2izcgSb0JOopmYMwzBgcu', NULL, 'admin', '2024-11-26 00:47:20', '0000-00-00 00:00:00'),
+(9, 'Lola Maharani Saputri', 'lolamaharani@gmail.com', '$2b$10$CLm9XAjL4uhrPYeoqVDUbORGmORZjLocIMI4taHANTCSNvVoCsHOa', NULL, 'pelamar', '2024-11-26 02:35:55', '0000-00-00 00:00:00'),
+(11, 'Yoga Syahputra', 'yogasyahputrauzumaki@gmail.com', '$2b$10$/Gs8IMS6A5Juc895dUFPrO6zeZ8FHylJmE0A4s7CAckT3kjVKDYuu', NULL, 'perusahaan', '2024-12-15 16:36:53', '0000-00-00 00:00:00'),
+(12, 'Admin AgriConnect', 'adminagriconnect@agriconnect.com', '$2b$10$J30x2f/PzZ09ybFz2vzgfu3phbvV6vGePmi0i7J1gLKE7YxabJC5C', '08888888', 'admin', '2024-12-17 16:46:16', '0000-00-00 00:00:00');
 
 --
 -- Indexes for dumped tables
@@ -329,7 +342,7 @@ ALTER TABLE `reviews`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Constraints for dumped tables
