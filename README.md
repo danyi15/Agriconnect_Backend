@@ -1,10 +1,4 @@
-PROSES MENJALANKAN 
-frontend 
-1. cd agriconnect-fe
-2. npm install
-3. npm run dev
-
- backend:
+PROSES MENJALANKAN BACKEND
 1. cd backend
 2. npm install
 3. Lanjut ke inisialisasi server sama database:
